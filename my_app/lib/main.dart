@@ -70,13 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Text('Hello World'),
         ],)
       ),
+      drawer: const Drawer(child: Center(child: Text("Drawer"))),
       body: Column(children: [
         const Text('初めてのテキスト'),
         const Text('初めてのテキスト'),
-        TextButton(
-          onPressed: () => {print("ボタンが押されたよ")}, 
-          child: const Text('更新'),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: const[
@@ -97,6 +94,12 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           ),
-      ]));
+        ]
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {print('押したね？')},
+        child: const Icon(Icons.timer),
+      ),
+    );
   }
 }
