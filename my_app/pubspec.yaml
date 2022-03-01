@@ -49,6 +49,23 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+  shared_preferences: ^2.0.5 # バージョンは執筆時の最新版のため適宜最新化する
+  # ちょっとしたデータをスマートフォンの中に保存しておきたいとき
+  # DBまでは作らず、KEY/VALUEで簡素に保存できるパッケージ
+
+  url_launcher: ^6.0.3 #バージョンは執筆時の最新版のため適宜最新化する
+  # URLランチャは指定したURLをブラウザを起動できるパッケージ
+
+  flutter_launcher_icons:
+    git:
+      url: https://github.com/Davenchy/flutter_launcher_icons.git 
+      ref: fixMinSdkParseFlutter2.8
+
+flutter_icons:
+    android: true
+    ios: true
+    image_path: "lib/assets/icon/appIcon.png"
+
 # The following section is specific to Flutter.
 flutter:
 

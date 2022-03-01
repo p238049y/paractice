@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,17 +55,26 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: const Drawer(child: Center(child: Text("Drawer"))),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-              Text(
-                '$_counter', 
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              if (_counter % 2 == 0) const Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
-              if(_counter % 2 == 1) const Text('奇数です', style: const TextStyle(fontSize: 20, color: Colors.red)),
-          ],
+        // child: Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: <Widget>[
+        //     const Text('You have pushed the button this many times:'),
+        //       Text(
+        //         '$_counter', 
+        //         style: Theme.of(context).textTheme.headline4,
+        //       ),
+        //       if (_counter % 2 == 0) const Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
+        //       if(_counter % 2 == 1) const Text('奇数です', style: const TextStyle(fontSize: 20, color: Colors.red)),
+        //   ],
+        // ),
+        child: IconButton(
+          icon: const Icon(Icons.open_in_browser),
+          onPressed: () async{
+            String url = Uri.encodeFull('https://www.google.co.jp');
+            if (await canLaunch(url)) {
+              await launch(url);
+            }
+          }
         ),
       ),  
       floatingActionButton: FloatingActionButton(
