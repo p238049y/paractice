@@ -12,19 +12,22 @@ import 'package:my_app/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+    // 画面を構築する
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
+    //0が書かれているWidgetが1つであることをテストする
     expect(find.text('0'), findsOneWidget);
+    //1が書かれているWidgetがないことをテストする
     expect(find.text('1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
+    // アイコンが「+」のWidgetをタップする
     await tester.tap(find.byIcon(Icons.add));
+    // Widgetツリーの再構築
     await tester.pump();
 
-    // Verify that our counter has incremented.
+    //0が書かれているWidgetがないことをテストする
     expect(find.text('0'), findsNothing);
+    //1が書かれているWidgetが1つであることをテストする
     expect(find.text('1'), findsOneWidget);
   });
 }

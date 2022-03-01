@@ -60,6 +60,10 @@ dev_dependencies:
     git:
       url: https://github.com/Davenchy/flutter_launcher_icons.git 
       ref: fixMinSdkParseFlutter2.8
+  
+  flutter_driver: # エミュレータを用いて実際の動作に近い環境で行う試験
+    sdk: flutter
+  test: any
 
 flutter_icons:
     android: true

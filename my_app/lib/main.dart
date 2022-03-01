@@ -36,11 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
-      if (_counter % 2 == 0) {
-        _type = '偶数';
-      } else {
-        _type = '奇数';
-      }
     });
   }
 
@@ -61,10 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
         //     const Text('You have pushed the button this many times:'),
         //       Text(
         //         '$_counter', 
+        //         key: const Key('counter'),
         //         style: Theme.of(context).textTheme.headline4,
         //       ),
         //       if (_counter % 2 == 0) const Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
-        //       if(_counter % 2 == 1) const Text('奇数です', style: const TextStyle(fontSize: 20, color: Colors.red)),
+        //       if(_counter % 2 == 1) const Text('奇数です', style: TextStyle(fontSize: 20, color: Colors.red)),
         //   ],
         // ),
         child: IconButton(
@@ -78,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),  
       floatingActionButton: FloatingActionButton(
+        key: const Key('increment'),
         onPressed: () => {
           _incrementCounter(),
           print('押したね？')
