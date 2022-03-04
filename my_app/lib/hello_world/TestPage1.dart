@@ -11,7 +11,7 @@ class TestPage1 extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () => {
-            Navigator.of(context).pushNamed("/test2")
+            Navigator.pushNamed(context, "/test2")
           },
           child: const Text('進む', style: TextStyle(fontSize: 80))
         )

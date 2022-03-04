@@ -13,9 +13,7 @@ class TestPage2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center, children: [
             TextButton(
               onPressed: () => {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                  return TestPage3();
-                }))
+                Navigator.pushNamed(context, "/test3")
               },
               child: const Text("進む", style: TextStyle(fontSize: 80))
             ),
