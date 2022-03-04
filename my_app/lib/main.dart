@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/hello_world/TestPage2.dart';
+import 'package:my_app/hello_world/TestPage3.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:my_app/hello_world/TestPage1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +17,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        routes: {
+          "/test1": (BuildContext context) => TestPage1(),
+          "/test2": (BuildContext context) => TestPage2(),
+          "/test3": (BuildContext context) => TestPage3(),
+        },
     );
   }
 }
@@ -50,34 +58,22 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: const Drawer(child: Center(child: Text("Drawer"))),
       body: Center(
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: <Widget>[
-        //     const Text('You have pushed the button this many times:'),
-        //       Text(
-        //         '$_counter', 
-        //         key: const Key('counter'),
-        //         style: Theme.of(context).textTheme.headline4,
-        //       ),
-        //       if (_counter % 2 == 0) const Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
-        //       if(_counter % 2 == 1) const Text('奇数です', style: TextStyle(fontSize: 20, color: Colors.red)),
-        //   ],
+        child: TestPage1(),
+        // child: IconButton(
+        //   icon: const Icon(Icons.open_in_browser),
+        //   onPressed: () async{
+        //     String url = Uri.encodeFull('https://www.google.co.jp');
+        //     if (await canLaunch(url)) {
+        //       await launch(url);
+        //     }
+        //   }
         // ),
-        child: IconButton(
-          icon: const Icon(Icons.open_in_browser),
-          onPressed: () async{
-            String url = Uri.encodeFull('https://www.google.co.jp');
-            if (await canLaunch(url)) {
-              await launch(url);
-            }
-          }
-        ),
-      ),  
+      ),
       floatingActionButton: FloatingActionButton(
         key: const Key('increment'),
         onPressed: () => {
           _incrementCounter(),
-          print('押したね？')
+          print('押した')
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
