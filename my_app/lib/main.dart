@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/hello_world/TestPage2.dart';
 import 'package:my_app/hello_world/TestPage3.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:my_app/hello_world/TestPage1.dart';
 
 void main() {
@@ -37,7 +36,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
+class _MyHomePageState extends State<MyHomePage> {
   bool flag = false;
 
   _click() async {
@@ -61,27 +60,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            AnimatedOpacity(
-                opacity: flag ? 0.1 : 1.0,
-                duration: const Duration(seconds: 3),
-                child: Text(
-                  "消える文字",
-                  style: Theme.of(context).textTheme.headline4,
-                )),
-            AnimatedSize(
-                vsync: this,
-                duration: const Duration(seconds: 3),
-                child: SizedBox(
-                    width: flag ? 50 : 200,
-                    height: flag ? 50 : 200,
-                    child: Container(color: Colors.purple))),
-            AnimatedAlign(
-                duration: const Duration(seconds: 3),
-                alignment: flag ? Alignment.topLeft : Alignment.bottomRight,
-                child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: Container(color: Colors.green)))
+            AnimatedContainer(
+              duration: const Duration(seconds: 3),
+              width: flag ? 100 : 50,
+              height: flag ? 50 : 100,
+              padding: flag ? const EdgeInsets.all(0) : const EdgeInsets.all(30),
+              margin: flag ? const EdgeInsets.all(0) : const EdgeInsets.all(30),
+              transform: flag ? Matrix4.skewX(0.0) : Matrix4.skewX(0.3),
+              color: flag ? Colors.blue : Colors.grey, 
+            ),
+            AnimatedSwitcher(
+              duration: const Duration(seconds: 3),
+              child: flag ? const Text("ないもない") : const Icon(Icons.favorite, color: Colors.pink),
+            )
           ],
         ),
         // child: TestPage1(),
@@ -95,15 +86,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
         //   }
         // ),
       ),
-      floatingActionButton: FloatingActionButton(
-        key: const Key('increment'),
-        onPressed: () => {
-          _click,
-          print('押した')
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: 
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          FloatingActionButton(
+            onPressed: _click,
+            child: const Icon(Icons.add),
+          ),
+        ])
     );
   }
 }
