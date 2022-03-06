@@ -1,8 +1,13 @@
 # my_app
 
-A new Flutter project.
+- [Flutter 実践入門 ～環境構築から Android/iOS/Web に広告を付けて同時にリリース](https://zenn.dev/kazutxt/books/flutter_practice_introduction)
+- 上記で基礎固めするリポジトリ
 
 ## Getting Started
+
+### 起動方法
+
+- Simulator を起動した状態で flutter run を実行する
 
 This project is a starting point for a Flutter application.
 
