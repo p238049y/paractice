@@ -38,6 +38,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
   late AnimationController _animationController;
+  late Animation<double> _animationDouble;
+  final Tween<double> _tweenDouble = Tween(begin: 0.0, end: 200);
+  late Animation<Color?> _animationColor;
+  final ColorTween _tweenColor = ColorTween(begin: Colors.green, end: Colors.blue);
+
   _play() async {
     setState(() {
       _animationController.forward();
@@ -60,6 +65,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
   void initState() {
     super.initState();
     _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 3));
+
+    _animationDouble = _tweenDouble.animate(_animationController);
+    _animationDouble.addListener(() {
+      setState(() {});
+    });
+
+    _animationColor = _tweenColor.animate(_animationController);
+    _animationColor.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
