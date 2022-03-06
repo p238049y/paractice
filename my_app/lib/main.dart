@@ -70,56 +70,81 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(children: const[
-          Icon(Icons.create),
-          Text('Hello World'),
-        ],)
-      ),
-      drawer: const Drawer(child: Center(child: Text("Drawer"))),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizeTransition(
-              sizeFactor: _animationController,
-              child: Center(
-                child: SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: Container(color:Colors.green),
-                )
-              ),
-            )
-          ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(children: const[
+            Icon(Icons.create),
+            Text('Hello World'),
+          ],)
         ),
-        // child: TestPage1(),
-        // child: IconButton(
-        //   icon: const Icon(Icons.open_in_browser),
-        //   onPressed: () async{
-        //     String url = Uri.encodeFull('https://www.google.co.jp');
-        //     if (await canLaunch(url)) {
-        //       await launch(url);
-        //     }
-        //   }
-        // ),
-      ),
-      floatingActionButton: 
-        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          FloatingActionButton(
-            onPressed: _play, 
-            child: const Icon(Icons.arrow_forward)
+        drawer: Drawer(
+          child: Column(
+            children: const [
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("ホーム"),
+              ),
+              ListTile(
+                leading: Icon(Icons.menu_book),
+                title: Text("メニュー"),
+              ),
+              ListTile(
+                leading: Icon(Icons.map),
+                title: Text("マップ"),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("設定"),
+              ),
+            ]),
           ),
-          FloatingActionButton(
-            onPressed: _stop, 
-            child: const Icon(Icons.pause)
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("AnimationController:${_animationController.value}"),
+              Text("AnimationDouble:${_animationDouble.value}"),
+              Text("AnimationColor:${_animationColor.value}"),
+              SizeTransition(
+                sizeFactor: _animationController,
+                child: Center(
+                  child: SizedBox(
+                    width: _animationDouble.value,
+                    height: _animationDouble.value,
+                    child: Container(color: _animationColor.value),
+                  )
+                ),
+              )
+            ],
           ),
-          FloatingActionButton(
-            onPressed: _reverse, 
-            child: const Icon(Icons.arrow_back)
-          ),
-        ])
+          // child: TestPage1(),
+          // child: IconButton(
+          //   icon: const Icon(Icons.open_in_browser),
+          //   onPressed: () async{
+          //     String url = Uri.encodeFull('https://www.google.co.jp');
+          //     if (await canLaunch(url)) {
+          //       await launch(url);
+          //     }
+          //   }
+          // ),
+        ),
+        floatingActionButton: 
+          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+            FloatingActionButton(
+              onPressed: _play, 
+              child: const Icon(Icons.arrow_forward)
+            ),
+            FloatingActionButton(
+              onPressed: _stop, 
+              child: const Icon(Icons.pause)
+            ),
+            FloatingActionButton(
+              onPressed: _reverse, 
+              child: const Icon(Icons.arrow_back)
+            ),
+          ])
+      )
     );
   }
 }
