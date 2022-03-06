@@ -75,71 +75,71 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(children: const[
-            Icon(Icons.create),
-            Text('Hello World'),
-          ],)
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(children: const[
+          Icon(Icons.create),
+          Text('Hello World'),
+        ],)
+      ),
+      drawer: SafeArea(
+        child: Drawer(
+        child: Column(
+          children: const [
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("ホーム"),
+            ),
+            ListTile(
+              leading: Icon(Icons.menu_book),
+              title: Text("メニュー"),
+            ),
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text("マップ"),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("設定"),
+            ),
+          ]),
         ),
-        drawer: Drawer(
-          child: Column(
-            children: const [
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text("ホーム"),
-              ),
-              ListTile(
-                leading: Icon(Icons.menu_book),
-                title: Text("メニュー"),
-              ),
-              ListTile(
-                leading: Icon(Icons.map),
-                title: Text("マップ"),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("設定"),
-              ),
-            ]),
-          ),
-        body: Center(
-          child: AnimatedBuilder(
-            animation: _animation,
-            builder: (context, _) {
-              return Transform.rotate(
-                angle: _animation.value, child: const Icon(Icons.cached, size: 100)
-              );
-            }
-          ),
-          // child: TestPage1(),
-          // child: IconButton(
-          //   icon: const Icon(Icons.open_in_browser),
-          //   onPressed: () async{
-          //     String url = Uri.encodeFull('https://www.google.co.jp');
-          //     if (await canLaunch(url)) {
-          //       await launch(url);
-          //     }
-          //   }
-          // ),
+      ),
+      body: Center(
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, _) {
+            return Transform.rotate(
+              angle: _animation.value, child: const Icon(Icons.cached, size: 100)
+            );
+          }
         ),
-        floatingActionButton: 
-          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-            FloatingActionButton(
-              onPressed: _play, 
-              child: const Icon(Icons.arrow_forward)
-            ),
-            FloatingActionButton(
-              onPressed: _stop, 
-              child: const Icon(Icons.pause)
-            ),
-            FloatingActionButton(
-              onPressed: _reverse, 
-              child: const Icon(Icons.arrow_back)
-            ),
-          ])
-      )
+        // child: TestPage1(),
+        // child: IconButton(
+        //   icon: const Icon(Icons.open_in_browser),
+        //   onPressed: () async{
+        //     String url = Uri.encodeFull('https://www.google.co.jp');
+        //     if (await canLaunch(url)) {
+        //       await launch(url);
+        //     }
+        //   }
+        // ),
+      ),
+      floatingActionButton: 
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          FloatingActionButton(
+            onPressed: _play, 
+            child: const Icon(Icons.arrow_forward)
+          ),
+          FloatingActionButton(
+            onPressed: _stop, 
+            child: const Icon(Icons.pause)
+          ),
+          FloatingActionButton(
+            onPressed: _reverse, 
+            child: const Icon(Icons.arrow_back)
+          ),
+        ])
     );
   }
 }
