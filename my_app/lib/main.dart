@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/hello_world/TestPage2.dart';
 import 'package:my_app/hello_world/TestPage3.dart';
@@ -38,10 +40,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
   late AnimationController _animationController;
-  late Animation<double> _animationDouble;
-  final Tween<double> _tweenDouble = Tween(begin: 0.0, end: 200);
-  late Animation<Color?> _animationColor;
-  final ColorTween _tweenColor = ColorTween(begin: Colors.green, end: Colors.blue);
+  late Animation _animation;
 
   _play() async {
     setState(() {
@@ -64,17 +63,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 3));
-
-    _animationDouble = _tweenDouble.animate(_animationController);
-    _animationDouble.addListener(() {
-      setState(() {});
-    });
-
-    _animationColor = _tweenColor.animate(_animationController);
-    _animationColor.addListener(() {
-      setState(() {});
-    });
+    _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    _animation = _animationController.drive(Tween(begin: 0.0, end: 2.0 * pi));
   }
 
   @override
@@ -115,23 +105,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
             ]),
           ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("AnimationController:${_animationController.value}"),
-              Text("AnimationDouble:${_animationDouble.value}"),
-              Text("AnimationColor:${_animationColor.value}"),
-              SizeTransition(
-                sizeFactor: _animationController,
-                child: Center(
-                  child: SizedBox(
-                    width: _animationDouble.value,
-                    height: _animationDouble.value,
-                    child: Container(color: _animationColor.value),
-                  )
-                ),
-              )
-            ],
+          child: AnimatedBuilder(
+            animation: _animation,
+            builder: (context, _) {
+              return Transform.rotate(
+                angle: _animation.value, child: const Icon(Icons.cached, size: 100)
+              );
+            }
           ),
           // child: TestPage1(),
           // child: IconButton(
