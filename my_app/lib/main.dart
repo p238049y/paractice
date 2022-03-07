@@ -5,6 +5,8 @@ import 'package:my_app/hello_world/TestPage2.dart';
 import 'package:my_app/hello_world/TestPage3.dart';
 import 'package:my_app/hello_world/TestPage1.dart';
 
+import 'async.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -45,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
   _play() async {
     setState(() {
       _animationController.forward();
+      Async().asynctest2(); 
     });
   }
 
