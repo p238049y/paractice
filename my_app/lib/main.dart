@@ -6,6 +6,7 @@ import 'package:my_app/hello_world/TestPage3.dart';
 import 'package:my_app/hello_world/TestPage1.dart';
 
 import 'async.dart';
+import 'dummy.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +55,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
   _stop() async {
     setState(() {
       _animationController.stop();
+      print("call setState");
+      nextpage();
     });
   }
 
@@ -63,12 +66,40 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
     });
   }
 
+  void nextpage() async {
+    {
+      await Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+        return DummyPage();
+      }));
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
     _animation = _animationController.drive(Tween(begin: 0.0, end: 2.0 * pi));
+    print("call initState");
   }
+
+  @override
+  void didChangeDependencies() {
+    print("call didChangeDependencies");
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(oldWidget) {
+    print("call didUpdateWidget");
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void deactivate() {
+    print("call deactivate");
+    super.deactivate();
+  }
+
 
   @override
   void dispose() {
