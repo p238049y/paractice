@@ -5,6 +5,7 @@ import 'package:my_app/hello_world/TestPage2.dart';
 import 'package:my_app/hello_world/TestPage3.dart';
 import 'package:my_app/hello_world/TestPage1.dart';
 
+import 'Menu/MenuPage.dart';
 import 'async.dart';
 import 'dummy.dart';
 
@@ -119,20 +120,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
       drawer: SafeArea(
         child: Drawer(
         child: Column(
-          children: const [
-            ListTile(
+          children: [
+            const ListTile(
               leading: Icon(Icons.home),
               title: Text("ホーム"),
             ),
             ListTile(
-              leading: Icon(Icons.menu_book),
-              title: Text("メニュー"),
+              leading: const Icon(Icons.menu_book),
+              title: const Text("メニュー"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MenuPage()
+                ));
+              },
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.map),
               title: Text("マップ"),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.settings),
               title: Text("設定"),
             ),
