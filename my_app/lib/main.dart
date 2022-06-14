@@ -141,6 +141,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               leading: Icon(Icons.settings),
               title: Text("設定"),
             ),
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Close'),
+              )
           ]),
         ),
       ),
