@@ -8,6 +8,7 @@ import 'package:my_app/hello_world/TestPage1.dart';
 import 'package:my_app/hello_world/main.dart';
 
 import 'Menu/MenuPage.dart';
+import 'News/NewsPage.dart';
 import 'Profile/ProfilePage.dart';
 import 'Setting/SettingPage.dart';
 import 'async.dart';
@@ -146,6 +147,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               title: const Text("マップ"),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()
+                ));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.newspaper_outlined ),
+              title: const Text("ニュース"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NewsPage()
                 ));
               },
             ),
