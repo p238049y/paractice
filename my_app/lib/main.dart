@@ -7,6 +7,7 @@ import 'package:my_app/hello_world/TestPage1.dart';
 import 'package:my_app/hello_world/main.dart';
 
 import 'Menu/MenuPage.dart';
+import 'Profile/ProfilePage.dart';
 import 'async.dart';
 import 'dummy.dart';
 
@@ -122,9 +123,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
         child: Drawer(
         child: Column(
           children: [
-            const ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text("プロフィール"),
+            ListTile(
+              leading: const Icon(Icons.account_circle),
+              title: const Text("プロフィール"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()
+                ));
+              },
             ),
             ListTile(
               leading: const Icon(Icons.menu_book),
