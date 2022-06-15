@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/hello_world/TestPage2.dart';
 import 'package:my_app/hello_world/TestPage3.dart';
 import 'package:my_app/hello_world/TestPage1.dart';
+import 'package:my_app/hello_world/main.dart';
 
 import 'Menu/MenuPage.dart';
 import 'async.dart';
@@ -122,8 +123,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
         child: Column(
           children: [
             const ListTile(
-              leading: Icon(Icons.home),
-              title: Text("ホーム"),
+              leading: Icon(Icons.account_circle),
+              title: Text("プロフィール"),
             ),
             ListTile(
               leading: const Icon(Icons.menu_book),
