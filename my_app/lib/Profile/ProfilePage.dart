@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   // const MenuPage({Key? key}) : super(key: key);
 
   @override
