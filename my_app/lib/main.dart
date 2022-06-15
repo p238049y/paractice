@@ -130,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               leading: const Icon(Icons.account_circle),
               title: const Text("プロフィール"),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()
                 ));
               },
@@ -138,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               leading: const Icon(Icons.menu_book),
               title: const Text("メニュー"),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(builder: (context) => MenuPage()
                 ));
               },
@@ -146,6 +148,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               leading: const Icon(Icons.map),
               title: const Text("マップ"),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()
                 ));
               },
@@ -154,6 +157,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               leading: const Icon(Icons.newspaper_outlined ),
               title: const Text("ニュース"),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NewsPage()
                 ));
               },
@@ -162,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
               leading: const Icon(Icons.settings),
               title: const Text("設定"),
               onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(builder: (context) => SettingPage()
                 ));
               },
