@@ -9,6 +9,7 @@ import 'package:my_app/hello_world/main.dart';
 
 import 'Menu/MenuPage.dart';
 import 'Profile/ProfilePage.dart';
+import 'Setting/SettingPage.dart';
 import 'async.dart';
 import 'dummy.dart';
 
@@ -148,9 +149,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
                 ));
               },
             ),
-            const ListTile(
-              leading: Icon(Icons.settings),
-              title: Text("設定"),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("設定"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingPage()
+                ));
+              },
             ),
             TextButton(
                 onPressed: () {
