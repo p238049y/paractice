@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/Map/MapPage.dart';
 import 'package:my_app/hello_world/TestPage2.dart';
 import 'package:my_app/hello_world/TestPage3.dart';
 import 'package:my_app/hello_world/TestPage1.dart';
@@ -139,9 +140,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin{
                 ));
               },
             ),
-            const ListTile(
-              leading: Icon(Icons.map),
-              title: Text("マップ"),
+            ListTile(
+              leading: const Icon(Icons.map),
+              title: const Text("マップ"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()
+                ));
+              },
             ),
             const ListTile(
               leading: Icon(Icons.settings),
