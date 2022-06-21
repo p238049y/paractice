@@ -65,6 +65,8 @@ dev_dependencies:
     sdk: flutter
   test: ^1.19.5
 
+  email_validator: ^2.0.1
+
 flutter_icons:
     android: true
     ios: true
