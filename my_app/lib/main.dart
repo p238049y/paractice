@@ -2,10 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:my_app/Map/MapPage.dart';
-import 'package:my_app/hello_world/TestPage2.dart';
-import 'package:my_app/hello_world/TestPage3.dart';
-import 'package:my_app/hello_world/TestPage1.dart';
-import 'package:my_app/hello_world/main.dart';
 
 import 'Menu/MenuPage.dart';
 import 'News/NewsPage.dart';
@@ -30,11 +26,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        routes: {
-          "/test1": (BuildContext context) => TestPage1(),
-          "/test2": (BuildContext context) => TestPage2(),
-          "/test3": (BuildContext context) => TestPage3(),
-        },
     );
   }
 }
