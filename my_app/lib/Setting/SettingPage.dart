@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
 
 class SettingPage extends StatelessWidget {
   // const SettingPage({Key? key}) : super(key: key);
@@ -36,11 +37,17 @@ class SettingPage extends StatelessWidget {
                 hintText: 'メールアドレス',
               ),
               maxLength: 30,
+              // validator: (value) {
+              //   if ((value == null) || !EmailValidator.validate(value)) {
+              //     return 'Emailが不正です';
+              //   }
+              // },
             ),
             const TextField(
               decoration: InputDecoration(
                 hintText: 'パスワード',
               ),
+              maxLength: 30,
             ),
             TextButton(
               child: const Text('ホームに戻る'),
