@@ -16,11 +16,30 @@ class SettingPage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: '名前',
               ),
+              maxLength: 30,
+              // validator: (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return '';
+              //   }
+              //   return null;
+              // }
               autofocus: true,
             ), 
             const TextField(
               decoration: InputDecoration(
                 hintText: 'ふりがな',
+              ),
+              maxLength: 30,
+            ),
+            const TextField(
+              decoration: InputDecoration(
+                hintText: 'メールアドレス',
+              ),
+              maxLength: 30,
+            ),
+            const TextField(
+              decoration: InputDecoration(
+                hintText: 'パスワード',
               ),
             ),
             TextButton(
