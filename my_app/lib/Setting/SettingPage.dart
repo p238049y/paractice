@@ -18,12 +18,6 @@ class SettingPage extends StatelessWidget {
                 hintText: '名前',
               ),
               maxLength: 30,
-              // validator: (value) {
-              //   if (value == null || value.isEmpty) {
-              //     return '';
-              //   }
-              //   return null;
-              // }
               autofocus: true,
             ), 
             const TextField(
@@ -33,6 +27,7 @@ class SettingPage extends StatelessWidget {
               maxLength: 30,
             ),
             const TextField(
+              // autovalidateMode: AutovalidateMode.onUserInteraction,
               decoration: InputDecoration(
                 hintText: 'メールアドレス',
               ),
