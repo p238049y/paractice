@@ -13,36 +13,30 @@ class SettingPage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            const TextField(
-              decoration: InputDecoration(
-                hintText: '名前',
-              ),
-              maxLength: 30,
-              autofocus: true,
+            TextField(
+              controller: TextEditingController(text: '名前'),
             ), 
-            const TextField(
-              decoration: InputDecoration(
-                hintText: 'ふりがな',
-              ),
-              maxLength: 30,
+            TextField(
+              controller: TextEditingController(text: 'ふりがな'),
             ),
-            const TextField(
+            TextField(
+              controller: TextEditingController(text: 'メールアドレス'),
+              // maxLength: 30,
               // autovalidateMode: AutovalidateMode.onUserInteraction,
-              decoration: InputDecoration(
-                hintText: 'メールアドレス',
-              ),
-              maxLength: 30,
               // validator: (value) {
               //   if ((value == null) || !EmailValidator.validate(value)) {
               //     return 'Emailが不正です';
               //   }
               // },
             ),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: 'パスワード',
-              ),
-              maxLength: 30,
+            TextField(
+              controller: TextEditingController(text: 'パスワード'),
+            ),
+            TextButton(
+              child: const Text('保存'),
+              onPressed: () { 
+                Navigator.pop(context);
+              },
             ),
             TextButton(
               child: const Text('ホームに戻る'),
